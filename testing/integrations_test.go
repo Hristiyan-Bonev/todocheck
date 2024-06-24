@@ -1,6 +1,8 @@
 package testing
 
 import (
+	"fmt"
+	"os"
 	"testing"
 
 	"github.com/preslavmihaylov/todocheck/checker/errors"
@@ -8,6 +10,7 @@ import (
 )
 
 func TestPublicGithubIntegration(t *testing.T) {
+	fmt.Println("Hellooo tasty-looking secret:", os.Getenv("TESTS_GITHUB_APITOKEN"))
 	err := baseGithubScenario().
 		OnlyRunOnCI().
 		WithAuthTokenFromEnv("TESTS_GITHUB_APITOKEN").
